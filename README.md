@@ -29,7 +29,8 @@ The program has the following structure:
        * Provides feedback to the user's guess by comparing the mastermind's code with it.
        * @public
        * @param {Array.<string>} guess - A combination of 4 colours
-       * @return {Array.<number>} An array consisting of 1 (present & right position) and 0 (present & wrong position) values, respectively (without specifying which pegs do these values belong to).
+       * @throws {Error} Throws an error when guess parameter is not an array with a length of 4.
+       * @return {Array.<number>} An array consisting of 1 (present & correct position) and 0 (present & wrong position) values, respectively (without specifying which pegs do these values belong to).
        */
       makeGuess( guess ) {
         //Throw an error if guess is not an array with a length of 4
@@ -39,30 +40,32 @@ The program has the following structure:
 
         let feedback = [];
 
-        //Make a local copy of the code that can be manipulated
+        //Make a local copy of the code and guess that can be manipulated
         let _code = this.code.slice( 0 );
+        let _guess = guess.slice( 0 );
 
-        //Find all exact matches (colour present & right position)
+        //Find all exact matches (colour present & correct position)
         for ( let i = 0; i < 4; i++ ) {
-          if ( _code[i] === guess[i] ) {
+          if ( _code[i] === _guess[i] ) {
             feedback.push( 1 );
 
             //set these pegs in both arrays as undefined to rule them out of further comparisons
-            delete guess[i];
+            delete _guess[i];
             delete _code[i];
           }
         }
 
         //Find all partial matches (colour present & wrong position)
         for ( let x = 0; x < 4; x++ ) {
-          if ( _code[x] && guess.includes( _code[x] ) ) {
+          if ( _code[x] && _guess.includes( _code[x] ) ) {
             feedback.push( 0 );
 
             //set this peg in the guess array as undefined to rule it out of further comparisons
-            delete guess[ guess.indexOf( _code[x] ) ];
+            delete _guess[ _guess.indexOf( _code[x] ) ];
           }
         }
 
+        //Start next round
         this.round++;
 
         return feedback;
@@ -71,7 +74,7 @@ The program has the following structure:
 
 * [js/game.js](./js/game.js)
 
-   This is where the game gets initialized. Contains functions that manipulate the HTML user interface.
+   This is where the game gets initialized. Contains functions that respond to events trigerred by the user and manipulate the HTML game interface.
 
 * [js/tests.js](./js/tests.js)
 
