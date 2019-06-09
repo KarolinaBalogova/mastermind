@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Mastermind</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<div class="playground">
+		<ul class="playground__peg-pickers">
+			<!-- Gets populated with coloured pegs -->
+		</ul>
+
+		<div class="playground__game game">
+			<div class="game__header">
+				<h1>Crack the code!</h1>
+			</div>
+			<ul class="game__rounds">
+				<!-- Gets populated with user guesses -->
+				<li class="game__rounds__round round" id="round-1">
+					<h2 class="round__no">1.</h2>
+					<ul class="round__guess">
+						<li class="peg peg--empty"></li>
+						<li class="peg peg--empty"></li>
+						<li class="peg peg--empty"></li>
+						<li class="peg peg--empty"></li>
+					</ul>
+					<ul class="round__feedback">
+						<!-- Gets populated Mastermind's feedback -->
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Game intructions -->
+		<p class="playground__instructions playground__instructions--left">
+			Start guessing by clicking on the pegs. Bear in mind that the colours CAN repeat themselves in the code.
+		</p>
+		<p class="playground__instructions playground__instructions--right">
+			This is where you get your feedback. Red pegs indicate each peg that is a correct color but wrong position, and the white pegs indicate each peg that is a correct color and correct position. The order of these does not hold any significance.
+		</p>
+	</div>
+
+	<script src="js/Mastermind.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/tests.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		//Comment out the line below to run the tests
+		//runTests();
+	</script>
+</body>
+</html>

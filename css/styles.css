@@ -1,0 +1,147 @@
+/* TYPESET */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #383838;
+}
+
+h1 {
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+}
+h2 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/* STYLES */
+
+/* playground */
+.playground {
+	margin: 10px auto;
+	height: 650px;
+	width: 610px;
+	position: relative;
+}
+
+/* colours */
+.playground__peg-pickers {
+	display: inline-block;
+	vertical-align: top;
+	margin: 52px 0;
+	width: 100px;
+}
+
+/* game */
+.game {
+	width: 400px;
+	height: 100%;
+	background-color: #F3F3F3;
+	border-radius: 15px;
+	display: inline-block;
+}
+
+.game__header {
+	background-color: #383838;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+/* round */
+.round {
+	position: relative;
+	height: 52px;
+	margin: 4px 0;
+}
+.round__no {
+	z-index: 2;
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	transform: translateY( -50% );
+}
+.round__guess {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	padding: 10px;
+	background-color: #D8D8D8;
+	border-radius: 15px;
+	box-sizing: border-box;
+}
+.round__feedback {
+	width: 100px;
+	height: 100%;
+	position: absolute;
+	right: -105px;
+	top: 0;
+	background-color: #D8D8D8;
+	border-radius: 15px;
+	text-align: left;
+	padding: 17px 15px;
+	box-sizing: border-box;
+}
+
+/* peg */
+.peg {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 10px;
+}
+.peg--empty {
+	box-sizing: border-box;
+	border: 2px dashed #383838;
+	background-color: transparent;
+}
+.peg--picker {
+	margin: 7px;
+	cursor: pointer;
+	transition: opacity 0.2s;
+}
+.peg--picker:hover {
+	opacity: 0.5;
+}
+.peg--disabled {
+	pointer-events: none;
+}
+
+/* feedback peg */
+.feedback-peg {
+	position: relative;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 2px;
+}
+.feedback-peg--correct {
+	background-color: white;
+}
+.feedback-peg--wrong-pos {
+	background-color: red;
+}
+
+/* instructions */
+.playground__instructions {
+	position: absolute;
+	font-size: 14px;
+	width: 190px;
+	top: 52px;
+	text-align: center;
+	padding: 10px;
+	background-color: #F3F3F3;
+	border-radius: 15px;
+}
+.playground__instructions--left {
+	left: -220px;
+}
+.playground__instructions--right {
+	right: -225px;
+}
